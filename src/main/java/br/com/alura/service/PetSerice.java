@@ -3,8 +3,8 @@ package br.com.alura.service;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.domain.Pet;
+import br.com.alura.domain.TipoPet;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

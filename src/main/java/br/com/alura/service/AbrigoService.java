@@ -21,15 +21,18 @@ public class AbrigoService {
 
     public void listarAbrigos() throws IOException, InterruptedException {
 
-                String uri = "http://localhost:8080/abrigos";
+        String uri = "http://localhost:8080/abrigos";
         HttpResponse<String> response = client.dispararRequisicaoGet(uri);
-
         String responseBody = response.body();
-        System.out.println("Abrigos cadastrados:");
         Abrigo[] abrigos = new ObjectMapper().readValue(responseBody, Abrigo[].class);
 
-        Arrays.stream(abrigos).forEach(abrigo ->
-            System.out.println(abrigo.getId() + " - " + abrigo.getNome()));
+        if (Arrays.toString(abrigos).equals("[]")){
+            System.out.println("Não há abrigos cadastrados!");
+        } else {
+            System.out.println("Abrigos cadastrados:");
+            Arrays.stream(abrigos).forEach(abrigo ->
+                    System.out.println(abrigo.getId() + " - " + abrigo.getNome()));
+        }
     }
 
     public void cadastrarAbrigo() throws IOException, InterruptedException {
@@ -49,11 +52,10 @@ public class AbrigoService {
         String responseBody = response.body();
         if (statusCode == 200) {
             System.out.println("Abrigo cadastrado com sucesso!");
-            System.out.println(responseBody);
         } else if (statusCode == 400 || statusCode == 500) {
             System.out.println("Erro ao cadastrar o abrigo:");
-            System.out.println(responseBody);
         }
+            System.out.println(responseBody);
     }
 
 }

@@ -59,4 +59,11 @@ public class Abrigo {
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
+
+    @Override
+    public String toString() {
+        return """
+                     "id":%s,"nome":"%s","telefone":"%s","email":"%s"
+                     """.formatted(this.id, this.nome, this.telefone, this.email);
+    }
 }

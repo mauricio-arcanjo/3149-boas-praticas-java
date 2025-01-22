@@ -1,4 +1,4 @@
-package br.com.alura.service;
+package br.com.alura.domain;
 
 public enum TipoPet {
     CACHORRO,

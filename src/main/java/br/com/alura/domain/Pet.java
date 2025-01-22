@@ -1,7 +1,5 @@
 package br.com.alura.domain;
 
-import br.com.alura.service.TipoPet;
-
 public class Pet {
 
     private Long id;
