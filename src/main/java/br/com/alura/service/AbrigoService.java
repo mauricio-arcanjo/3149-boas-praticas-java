@@ -12,11 +12,9 @@ import java.util.Scanner;
 public class AbrigoService {
 
     private ClientHttpConfiguration client;
-    private Scanner scanner;
 
-    public AbrigoService(ClientHttpConfiguration client, Scanner scanner) {
+    public AbrigoService(ClientHttpConfiguration client) {
         this.client = client;
-        this.scanner = scanner;
     }
 
     public void listarAbrigos() throws IOException, InterruptedException {
@@ -36,7 +34,7 @@ public class AbrigoService {
     }
 
     public void cadastrarAbrigo() throws IOException, InterruptedException {
-
+        Scanner scanner = new Scanner(System.in);
         Abrigo abrigo = new Abrigo();
         System.out.println("Digite o nome do abrigo:");
         abrigo.setNome(scanner.nextLine());

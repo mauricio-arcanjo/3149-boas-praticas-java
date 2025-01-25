@@ -16,18 +16,13 @@ import java.util.Scanner;
 public class PetService {
 
     private ClientHttpConfiguration client;
-    private Scanner scanner;
-
-    public PetService(ClientHttpConfiguration client, Scanner scanner) {
-        this.client = client;
-        this.scanner = scanner;
-    }
 
     public PetService(ClientHttpConfiguration client) {
         this.client = client;
     }
 
     public void listarPetsDoAbrigo() throws IOException, InterruptedException {
+        Scanner scanner= new Scanner(System.in);
 
         System.out.println("Digite o id ou nome do abrigo:");
         String idOuNome = scanner.nextLine();
@@ -51,12 +46,13 @@ public class PetService {
     }
 
     public void importarPetsDoAbrigo() throws IOException, InterruptedException {
-        Scanner scanner2= new Scanner(System.in);
+        Scanner scanner= new Scanner(System.in);
+
         System.out.println("Digite o id ou nome do abrigo:");
-        String idOuNome = scanner2.nextLine();
+        String idOuNome = scanner.nextLine();
 
         System.out.println("Digite o nome do arquivo CSV:");
-        String nomeArquivo = scanner2.nextLine();
+        String nomeArquivo = scanner.nextLine();
 
         BufferedReader reader;
         try {
