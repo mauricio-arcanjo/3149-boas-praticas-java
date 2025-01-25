@@ -46,9 +46,11 @@ public class AbrigoServiceTest {
         Assertions.assertEquals(expectedAbrigosCadastrados, actualAbrigosCadastrados);
         Assertions.assertEquals(expectedIdENome, actualIdENome);
 
-    }    @Test
+    }
+
+    @Test
     public void deveVerificarQuandoNaoHaAbrigo() throws IOException, InterruptedException {
-        String expectedAbrigosCadastrados = "Não há abrigos cadastrados!";
+        String expected = "Não há abrigos cadastrados!";
 
         //Conjunto de métodos para recuperar bytes impressos pelo system out print para que seja possível fazer a comparacao no teste
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -61,9 +63,9 @@ public class AbrigoServiceTest {
         abrigoService.listarAbrigos();
 
         String[] lines = baos.toString().split(System.lineSeparator());
-        String actualAbrigosCadastrados = lines[0];
+        String actual = lines[0];
 
-        Assertions.assertEquals(expectedAbrigosCadastrados, actualAbrigosCadastrados);
+        Assertions.assertEquals(expected, actual);
     }
 
 

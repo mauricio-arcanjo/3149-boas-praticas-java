@@ -13,14 +13,18 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PetSerice {
+public class PetService {
 
     private ClientHttpConfiguration client;
     private Scanner scanner;
 
-    public PetSerice(ClientHttpConfiguration client, Scanner scanner) {
+    public PetService(ClientHttpConfiguration client, Scanner scanner) {
         this.client = client;
         this.scanner = scanner;
+    }
+
+    public PetService(ClientHttpConfiguration client) {
+        this.client = client;
     }
 
     public void listarPetsDoAbrigo() throws IOException, InterruptedException {
@@ -47,12 +51,12 @@ public class PetSerice {
     }
 
     public void importarPetsDoAbrigo() throws IOException, InterruptedException {
-
+        Scanner scanner2= new Scanner(System.in);
         System.out.println("Digite o id ou nome do abrigo:");
-        String idOuNome = scanner.nextLine();
+        String idOuNome = scanner2.nextLine();
 
         System.out.println("Digite o nome do arquivo CSV:");
-        String nomeArquivo = scanner.nextLine();
+        String nomeArquivo = scanner2.nextLine();
 
         BufferedReader reader;
         try {
@@ -61,6 +65,7 @@ public class PetSerice {
             System.out.println("Erro ao carregar o arquivo: " +nomeArquivo);
             return;
         }
+
         String line;
         while ((line = reader.readLine()) != null) {
 

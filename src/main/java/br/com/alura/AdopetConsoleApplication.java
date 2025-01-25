@@ -2,7 +2,7 @@ package br.com.alura;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.service.AbrigoService;
-import br.com.alura.service.PetSerice;
+import br.com.alura.service.PetService;
 import java.util.Scanner;
 
 public class AdopetConsoleApplication {
@@ -13,7 +13,7 @@ public class AdopetConsoleApplication {
         ClientHttpConfiguration client = new ClientHttpConfiguration();
         Scanner scanner = new Scanner(System.in);
         AbrigoService abrigoService = new AbrigoService(client, scanner);
-        PetSerice petSerice = new PetSerice(client, scanner);
+        PetService petSerice = new PetService(client, scanner);
 
         try {
             int opcaoEscolhida = 0;
